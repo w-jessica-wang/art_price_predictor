@@ -1,8 +1,8 @@
 {
   "generated_at": "2026-06-15 23:50:18",
   "mode": "EVAL (held-out test)",
-  "code_commit": null,
-  "working_tree_dirty": true,
+  "code_commit": "59e226f16017d2b2a423fae5d704f2f3c445dbb9",
+  "working_tree_dirty": false,
   "python": "3.11.8",
   "platform": "macOS-26.4.1-arm64-arm-64bit",
   "key_packages": {
