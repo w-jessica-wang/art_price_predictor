@@ -252,3 +252,5 @@ If you reference this work, please cite:
 This repository is provided for **personal evaluation and learning only**. Copying, redistribution, modification, derivative works, commercial use, and training machine-learning models on this code or methodology are prohibited without express written permission. See [LICENSE](LICENSE) for the full terms.
 
 > **Disclaimer:** This tool is for research and informational purposes only. It is not financial advice. Auction markets are inherently volatile and past performance does not predict future results. Always consult a specialist before making purchasing decisions.
+>
+> This project is an independent research effort. It is **not affiliated with, sponsored by, or endorsed by** Christie's, Bonhams, Phillips, Sotheby's, or any auction house. All house names are used solely to identify the public sources of the underlying auction results.
