@@ -1,0 +1,166 @@
+{
+  "method": "purged walk-forward CV (rolling-origin), embargo 1mo, full calibration chain refit per fold",
+  "n_folds": 5,
+  "pooled": {
+    "n": 18643,
+    "medape_model": 29.4,
+    "medape_est": 30.2,
+    "within20_model": 37.0,
+    "within20_est": 36.9,
+    "r2_model": 0.897,
+    "r2_est": 0.887,
+    "coverage": 80.4,
+    "ranking_auc": 0.623,
+    "base_rate_beat": 65.2,
+    "ranking_auc_ci": [
+      0.61,
+      0.635
+    ],
+    "ranking_auc_ci_artist_clustered": [
+      0.61,
+      0.635
+    ],
+    "ranking_auc_ci_sale_clustered": [
+      0.606,
+      0.639
+    ],
+    "medape_delta_pp": -0.85,
+    "medape_delta_ci": [
+      -1.12,
+      -0.24
+    ],
+    "medape_delta_p_model_better": 1.0,
+    "decile_bottom": 50.3,
+    "decile_top": 82.6,
+    "decile_spearman_rho": 1.0,
+    "decile_spearman_p": 6.646897422032013e-64
+  },
+  "per_fold": [
+    {
+      "n": 6762,
+      "medape_model": 28.3,
+      "medape_est": 29.7,
+      "within20_model": 38.0,
+      "within20_est": 37.7,
+      "r2_model": 0.909,
+      "r2_est": 0.9,
+      "coverage": 83.3,
+      "ranking_auc": 0.625,
+      "base_rate_beat": 68.0,
+      "fold": "2024 Q4",
+      "houses": {
+        "christies": 3744,
+        "phillips": 1416,
+        "bonhams": 1602
+      }
+    },
+    {
+      "n": 3901,
+      "medape_model": 33.7,
+      "medape_est": 33.9,
+      "within20_model": 33.8,
+      "within20_est": 33.2,
+      "r2_model": 0.856,
+      "r2_est": 0.834,
+      "coverage": 72.0,
+      "ranking_auc": 0.649,
+      "base_rate_beat": 67.0,
+      "fold": "2025 Q1",
+      "houses": {
+        "phillips": 1076,
+        "bonhams": 938,
+        "christies": 1887
+      }
+    },
+    {
+      "n": 3089,
+      "medape_model": 28.0,
+      "medape_est": 28.4,
+      "within20_model": 38.6,
+      "within20_est": 39.0,
+      "r2_model": 0.897,
+      "r2_est": 0.887,
+      "coverage": 84.5,
+      "ranking_auc": 0.627,
+      "base_rate_beat": 63.0,
+      "fold": "2025 Q2",
+      "houses": {
+        "phillips": 1578,
+        "bonhams": 1511
+      }
+    },
+    {
+      "n": 2114,
+      "medape_model": 30.2,
+      "medape_est": 30.5,
+      "within20_model": 34.4,
+      "within20_est": 34.2,
+      "r2_model": 0.874,
+      "r2_est": 0.874,
+      "coverage": 76.5,
+      "ranking_auc": 0.618,
+      "base_rate_beat": 59.3,
+      "fold": "2025 Q3",
+      "houses": {
+        "phillips": 1063,
+        "bonhams": 1051
+      }
+    },
+    {
+      "n": 2777,
+      "medape_model": 27.3,
+      "medape_est": 28.9,
+      "within20_model": 39.5,
+      "within20_est": 39.8,
+      "r2_model": 0.887,
+      "r2_est": 0.881,
+      "coverage": 83.5,
+      "ranking_auc": 0.593,
+      "base_rate_beat": 62.8,
+      "fold": "2025 Q4",
+      "houses": {
+        "phillips": 1338,
+        "bonhams": 1439
+      }
+    }
+  ],
+  "per_house_pooled": {
+    "bonhams": {
+      "n": 6541,
+      "medape_model": 27.8,
+      "medape_est": 28.9,
+      "within20_model": 39.4,
+      "within20_est": 39.4,
+      "r2_model": 0.862,
+      "r2_est": 0.856,
+      "coverage": 79.8,
+      "ranking_auc": 0.61,
+      "base_rate_beat": 62.5
+    },
+    "christies": {
+      "n": 5631,
+      "medape_model": 32.8,
+      "medape_est": 33.9,
+      "within20_model": 33.3,
+      "within20_est": 33.5,
+      "r2_model": 0.855,
+      "r2_est": 0.829,
+      "coverage": 78.1,
+      "ranking_auc": 0.61,
+      "base_rate_beat": 72.6
+    },
+    "phillips": {
+      "n": 6471,
+      "medape_model": 27.9,
+      "medape_est": 29.2,
+      "within20_model": 37.9,
+      "within20_est": 37.4,
+      "r2_model": 0.896,
+      "r2_est": 0.891,
+      "coverage": 83.0,
+      "ranking_auc": 0.609,
+      "base_rate_beat": 61.4
+    }
+  },
+  "christies_test_lots": 5631
+}

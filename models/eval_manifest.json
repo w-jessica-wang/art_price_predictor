@@ -1,0 +1,67 @@
+{
+  "generated_at": "2026-06-15 23:48:40",
+  "mode": "DEPLOY (refit-all)",
+  "code_commit": null,
+  "working_tree_dirty": true,
+  "python": "3.11.8",
+  "platform": "macOS-26.4.1-arm64-arm-64bit",
+  "key_packages": {
+    "lightgbm": "4.6.0",
+    "catboost": "1.2.10",
+    "scikit-learn": "1.7.2",
+    "numpy": "2.3.5",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3"
+  },
+  "data_path": "art_auction_clean.csv",
+  "data_sha256": "ddc2d361f44c0c852bb0631966a1ec8ea52fdecab660c02399f44a7e86b37254",
+  "feature_cache_sha256": "9e00a6a5a193906670aa3f832d90a95356565c860b0935038dc16391b824d884",
+  "n_features": 43,
+  "feature_cols_count": 42,
+  "nnls_weights": {
+    "lgbm": 0.6595,
+    "cat": 0.3405
+  },
+  "split": {
+    "train": "\u22642024",
+    "val": "2025 H1",
+    "test": "2025 H2"
+  },
+  "headline_split": "carried from eval",
+  "carried_from_eval_meta_sha256": "7ddb564ab2206629b2bdd421fbcdf04a3929a15d4dc4b748f49d5cec30dbfe08",
+  "score_column_for_ranking": "pred_logratio_raw (unshrunk)",
+  "display": {
+    "medape_model": 29.2,
+    "medape_est": 29.2,
+    "within20_model": 36.8,
+    "within20_est": 37.4,
+    "r2_raw_model": 0.89,
+    "r2_raw_est": 0.882,
+    "interval_coverage": 82.2,
+    "ranking_auc": 0.599,
+    "n_holdout": 4891,
+    "holdout_period": "2025 H2 (test)",
+    "n_priced": 129023,
+    "n_total": 150808,
+    "houses": [
+      "bonhams",
+      "christies",
+      "phillips",
+      "sothebys"
+    ]
+  },
+  "artifact_sha256": {
+    "lgbm.txt": "a859f00206ec2d962ef56fdd88938db49803921f530f22f72512c006be44b749",
+    "lgbm_low.txt": "42e1e1168f43f79d8c26751296a80068c39c2f01c2efbd770f1f8389f8fb4968",
+    "lgbm_q10.txt": "732d144fa542a134675a93d44cd72fbc7e3077dc05ec25036c34db3de14f64fb",
+    "lgbm_q90.txt": "8abee700885f04fb079b0d88c4fbfb03faa03bf7316638d1a0356d313f951c2b",
+    "catboost.cbm": "433053d79db2e8a06179b49cd7110261d4367f95d0e2513c7f529d84d1bf11ed",
+    "calibrator.pkl": "1519f351d386536192e56f1555ee5bf4bb327016cc62ba9dac64f66d4bcca0fc",
+    "meta_learner.pkl": "ddfbf11af55d620235fb9413afb9c23d72814127fc986a08fc8028e533ddf69a",
+    "sell_through.pkl": "1525e50d14ac7c4cf17a96753564669b5cb1473560f6bdead847e1bbc23693b0",
+    "eval_predictions.parquet": "10502e03ca8873fe9ba78c52742a74c5a8f22cf1fe89945809d41aecbbe37fe1",
+    "artist_stats.parquet": "3a4a68d6b1493d07c7a16e7bb6b98d73fc966ffacad0647d92a79e6618b3b5e1",
+    "artist_house_stats.parquet": "15f3c54cd27f3e61e272f1e6e19b5d6b1220199534343aa5fb06cb71e8bbda1a",
+    "meta.json": "2f14940c62e55d62fa52d51b463f87e5898be5947e23129c317134b8574a96a5"
+  }
+}

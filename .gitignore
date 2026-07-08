@@ -1,0 +1,79 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# Environment
+.env
+.env.*
+venv/
+.venv/
+env/
+.python-version
+
+# Scrapers — ToS violation risk (never push)
+scrapers/
+
+# Data files — raw and derived auction records (never push)
+data/
+# (redundant explicit patterns kept as safety net)
+data/*.csv
+data/*.parquet
+data/*.json.gz
+data/*.zip
+data/*.bak
+data/*.txt
+
+# Model artifacts (too large to commit + eval_predictions.parquet contains raw
+# auction records — never push; keep only the small meta.json for reference)
+models/*.txt
+models/*.pkl
+models/*.cbm
+models/*.parquet
+models/*.zip
+models/*.bin
+!models/meta.json
+models_eval/*.txt
+models_eval/*.pkl
+models_eval/*.cbm
+models_eval/*.parquet
+models_eval/*.zip
+models_eval/*.bin
+!models_eval/meta.json
+
+# CatBoost training output
+catboost_info/
+
+# Logs
+logs/
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE / tooling
+.vscode/
+.idea/
+.claude/
+*.swp
+*.swo
+*~
+
+# Stale/unreferenced root image (regenerate a current diagram if needed)
+model_overview.png
+
+# Streamlit
+.streamlit/secrets.toml

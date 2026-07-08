@@ -1,0 +1,41 @@
+Copyright (c) 2026 Jessica Wang. All Rights Reserved.
+
+PROPRIETARY AND CONFIDENTIAL
+
+This repository and all of its contents — including but not limited to source code,
+model architecture, feature engineering, training pipelines, and documentation —
+are the exclusive intellectual property of Jessica Wang.
+
+PERMITTED USE
+-------------
+You may view and read this code on GitHub for the sole purpose of personal
+evaluation and learning. No other use is permitted without explicit prior
+written permission from the copyright holder.
+
+PROHIBITED WITHOUT PERMISSION
+------------------------------
+The following are strictly prohibited without express written permission:
+
+  - Copying, reproducing, or redistributing any portion of this code
+  - Modifying, adapting, or creating derivative works based on this code
+  - Incorporating any portion of this code into another project
+  - Using this code or any portion of it for commercial purposes
+  - Deploying this code or any derivative as a product or service
+  - Training machine learning models using any code or methodology derived
+    from this repository
+
+TO REQUEST PERMISSION
+---------------------
+To request a license for any use beyond personal evaluation, open a GitHub
+Issue on this repository or contact the copyright holder directly through
+their GitHub profile.
+
+NO WARRANTY
+-----------
+This software is provided "as is", without warranty of any kind, express or
+implied. The copyright holder accepts no liability for any damages arising
+from any use of this software.
+
+---
+Art Auction Price Predictor
+Copyright (c) 2026 Jessica Wang

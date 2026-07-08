@@ -1,0 +1,29 @@
+# Art Auction Price Predictor — pinned dependencies
+# Python 3.11+
+#
+# Versions are pinned exactly to the tested environment for reproducibility —
+# these are the versions the reported metrics and model artifacts were built with.
+
+# ── Core ML ────────────────────────────────────────────────────────────────
+lightgbm==4.6.0
+catboost==1.2.10
+scikit-learn==1.7.2
+scipy==1.16.3
+
+# ── Explainability ────────────────────────────────────────────────────────
+shap==0.51.0
+
+# ── Data ──────────────────────────────────────────────────────────────────
+pandas==2.3.3
+numpy==2.3.5
+pyarrow==24.0.0
+
+# ── App / visualization ───────────────────────────────────────────────────
+streamlit==1.57.0
+plotly==6.5.0
+
+# ── Figures (figures/decile_lift.py) ───────────────────────────────────────
+matplotlib==3.10.7
+
+# ── Testing ────────────────────────────────────────────────────────────────
+pytest==9.0.3
