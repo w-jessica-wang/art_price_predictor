@@ -43,7 +43,9 @@ Each fold trains on the past, refits the *entire* calibration chain (isotonic �
 | **Ranking AUC** (beats vs. misses midpoint) | 0.50 | **0.62** [0.61–0.63] | **real signal** |
 | 80% interval empirical coverage | n/a | **80.4%** | ✅ calibrated |
 
-The MedAPE edge is small but **statistically supported**: an artist-clustered paired bootstrap of Δ = MedAPE(model) − MedAPE(estimate) gives **−0.85pp, 95% CI [−1.12, −0.24]** (excludes zero; model better in 100% of resamples). **Stability is the point:** ranking AUC by quarter is **0.63 · 0.65 · 0.63 · 0.62 · 0.59** — steady in *every* fold; the pooled decile staircase runs **50% → 83%** with a perfectly monotonic Spearman ρ = 1.0. On MedAPE the model wins **all 5 quarters** (the closest is 2024 Q4, 28.3 vs 29.7). Per-house, pooled, the model **wins all three**: Christie's **32.8 / 33.9**, Bonhams **27.8 / 28.9**, Phillips **27.9 / 29.2** — AUC ≈0.61 each. The ranking AUC's 95% CI excludes 0.5 under **both** an artist-clustered bootstrap **[0.61, 0.64]** and a sale-clustered (auction-level, 395 sales) bootstrap **[0.61, 0.64]** — robust to either correlation unit. See the [walk-forward figure](figures/walk_forward.png) and `ml/walk_forward_eval.py`.
+The MedAPE edge is small but **statistically supported**: an artist-clustered paired bootstrap of Δ = MedAPE(model) − MedAPE(estimate) gives **−0.85pp, 95% CI [−1.12, −0.24]** (excludes zero; model better in 100% of resamples). **Stability is the point:** ranking AUC by quarter is **0.63 · 0.65 · 0.63 · 0.62 · 0.59** — steady in *every* fold; the pooled decile staircase runs **50% → 83%** with a perfectly monotonic Spearman ρ = 1.0. On MedAPE the model wins **all 5 quarters** (the closest is 2024 Q4, 28.3 vs 29.7). Per-house, pooled, the model **wins all three**: Christie's **32.8 / 33.9**, Bonhams **27.8 / 28.9**, Phillips **27.9 / 29.2** — AUC ≈0.61 each. The ranking AUC's 95% CI excludes 0.5 under **both** an artist-clustered bootstrap **[0.61, 0.64]** and a sale-clustered (auction-level, 395 sales) bootstrap **[0.61, 0.64]** — robust to either correlation unit. (Reproduce via `ml/walk_forward_eval.py`.)
+
+![Walk-forward CV: MedAPE and ranking AUC by test quarter](figures/walk_forward.png)
 
 > **What walk-forward measures:** how the *modeling approach* generalizes across time (each fold is a separate fit). The single deployed artifact in `models/` is one fit; its own strictly-clean holdout is the 2025 H2 quarter below.
 
@@ -60,6 +62,8 @@ The single most recent forward window, held out of training **and** of the 2025 
 | Coverage | n/a | **82.2%** | calibrated |
 
 **How to read all this.** Against a *near-efficient* benchmark, beating point accuracy by a lot is neither expected nor a good sign — an *unconstrained* ensemble actually does **worse** on MedAPE (31.6%), because its extra deviation is noise on the typical lot. The **Stage-C estimate-anchored shrink** (`λ=0` always in-grid ⇒ provably no worse than the estimate on validation) keeps the model at-or-above the estimate. The genuine, robust contribution is **(1) ranking** — a stable AUC ≈0.62 that sorts over- vs. under-performers across every quarter and every house — and **(2) calibrated uncertainty** the estimate cannot give.
+
+![Decile lift on the 2025 H2 holdout: share of lots beating the estimate midpoint by model-signal decile](figures/decile_lift.png)
 
 <a name="honest-evaluation"></a>
 ### Honest evaluation & known limitations
