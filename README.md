@@ -195,8 +195,8 @@ art_price_predictor/
 ├── generate_presale.py       # Batch scoring of no-hammer lots → no_hammer_batch_scores.csv
 ├── requirements.txt
 ├── .github/workflows/ci.yml  # CI: runs the test suite (incl. docs-sync) on push/PR
-├── models/                   # Deployed artifacts + meta.json + eval_manifest.json (provenance)
-├── models_eval/              # Honest forward-eval artifacts + eval_predictions.parquet (split-tagged)
+├── models/                   # Public metadata only: meta.json + eval_manifest.json
+├── models_eval/              # Public eval summaries: walk_forward.json + meta/manifest
 ├── figures/
 │   ├── decile_lift.py        # Decile-lift / ranking-AUC chart (2025 H2 holdout)
 │   └── walk_forward.png      # Walk-forward CV: MedAPE + AUC by quarter
