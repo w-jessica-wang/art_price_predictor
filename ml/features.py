@@ -135,8 +135,7 @@ ARTIST_NATIONALITY: dict[str, int] = {
     "Lee Krasner": 2, "Helen Frankenthaler": 2, "Ellsworth Kelly": 2,
     "Donald Judd": 2, "Dan Flavin": 2, "Richard Serra": 2,
     "Carl Andre": 2, "Sol LeWitt": 2, "Lawrence Weiner": 2,
-    # South Asian
-    "Francis Newton Souza": 7,
+    # South Asian — Francis Newton Souza already mapped above (region 7)
     # ── Expansion batch (high-frequency unknowns) ─────────────────────────────
     # North American
     "Ansel Adams": 2, "Robert Mapplethorpe": 2, "Jeff Koons": 2,
