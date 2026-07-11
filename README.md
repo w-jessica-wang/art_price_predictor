@@ -73,6 +73,27 @@ The single most recent forward window, held out of training **and** of the 2025 
 - **Sotheby's is thin (≈0.8% of data).** It is included for completeness but the model has little Sotheby's-specific signal; do not rely on it there.
 - **Point predictions are not investment advice.** See the disclaimer at the bottom.
 
+#### Known issues & engineering caveats
+
+Fuller limitation discussions: [Technical Report §7](TECHNICAL_REPORT.md), [Model Card](model_card.md), [Data Card §8](DATA.md). Technical caveats worth knowing up front:
+
+- **Single seed.** All results are one training run (seed 42); no repeated-seed stability analysis of the ensemble weights or ranking metrics.
+- **OOF stacking nuance.** Each stacking fold uses its own held-out block as the early-stopping eval set, so the boosting-iteration count is fold-informed — "out-of-training-fold predictions," not perfectly untouched OOF (disclosed in `build_oof_predictions`; it only sets 2 ensemble weights).
+- **14-row dataset delta.** A fresh end-to-end re-clean differs from the deployed dataset copy by 14 rows (<0.01%, deduplication tie-ordering) — see the Data Card's deployed-copy note.
+- **Deployed artifact's own holdout has no Christie's** (their data caps 2025-03-27); Christie's out-of-sample evidence comes from the walk-forward folds.
+- **Decile thresholds** are formed on the evaluation sample (standard lift-chart convention) rather than frozen on validation.
+- **Test scope.** The suite covers the leakage controls, calibration guarantees, data-quality invariants, and doc-drift — not the entire end-to-end pipeline (e.g., saved-vs-regenerated prediction equality is verified by inspection).
+
+#### Future work
+
+Natural next steps, roughly in value order:
+
+1. **Collect post-March-2025 Christie's results** — closes the one remaining coverage gap and lets the largest house into the most recent walk-forward folds.
+2. **Repeated-seed stability analysis** — quantify run-to-run variance of the ensemble weights and ranking metrics.
+3. **Demand-side features** (pre-sale interest signals revealed *after* the estimate is set) — the one signal category the specialist cannot have priced in; lot-record text and images demonstrably add nothing (see the negative result in the Technical Report).
+4. **Hosted live demo** of the Streamlit app (with artifacts in private storage, keeping the data unreleased).
+5. **Pure OOF stacking** — early-stop each stacking fold on an inner tail of its own training data instead of the held-out block.
+
 ---
 
 ## Architecture
