@@ -185,7 +185,10 @@ class ArtPricePredictor:
         house  = HOUSE_MAP.get(str(kw.get("house","christies")).lower(), 0)
         w_cm   = float(kw.get("width_cm") or 0)
         h_cm   = float(kw.get("height_cm") or 0)
-        asp    = max(0.1, min(10, w_cm/max(h_cm,0.01))) if h_cm else 1.0
+        # PARITY: training leaves aspect_ratio NaN for missing dims and prep() fills
+        # NaN→0.0, so 0.0 is the model's learned "dims missing" marker. Emit the same
+        # here (previously 1.0, which the model reads as a square artwork).
+        asp    = max(0.1, min(10, w_cm / max(h_cm, 0.01))) if (w_cm and h_cm) else 0.0
         prov   = str(kw.get("provenance") or "")
         pl     = min(len(prov), 500)
         pac    = len(_re.findall(r"christie|sotheby|phillips|bonham|auction",prov,_re.I))
@@ -340,6 +343,19 @@ class ArtPricePredictor:
 
     # ── predict ───────────────────────────────────────────────────────────
     def predict(self, **kw) -> dict:
+        # Validate estimates up front — fail loudly instead of silently predicting
+        # nonsense from est_mid=0 (e.g. estimate_low=None coerces to 0 downstream).
+        try:
+            _lo = float(kw.get("estimate_low") or 0)
+            _hi = float(kw.get("estimate_high") or 0)
+        except (TypeError, ValueError):
+            raise ValueError(f"estimate_low/estimate_high must be numeric, got "
+                             f"{kw.get('estimate_low')!r} / {kw.get('estimate_high')!r}")
+        if _lo <= 0 or _hi <= 0:
+            raise ValueError(f"estimates must be positive, got {_lo} / {_hi}")
+        if _hi < _lo:
+            raise ValueError(f"estimate_high ({_hi}) < estimate_low ({_lo})")
+
         X, est_mid, known, log_std, art_med = self._fvec(**kw)
         artist = str(kw.get("artist",""))
         is_low = est_mid < self.low_thr
