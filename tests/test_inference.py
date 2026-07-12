@@ -44,7 +44,7 @@ def test_predicted_hammer_positive_and_finite():
 
 def test_conformal_interval_is_ordered_and_positive():
     r = _predict()
-    assert 0 < r["conformal_p10"] <= r["conformal_p90"]
+    assert 0 < r["conformal_p10"] < r["conformal_p90"]
 
 
 def test_inference_uses_persisted_momentum_and_market():
@@ -84,6 +84,14 @@ def test_inference_uses_persisted_momentum_and_market():
                          sale_year=2025, sale_month=9)
         assert float(Xa[0][cols.index("artist_momentum_6m")]) != 0.0, (
             "artist_momentum_6m still hardcoded to 0.0 at inference")
+
+    # aspect_ratio parity: training fills missing dims as 0.0 (prep fillna);
+    # inference must emit the same marker, not 1.0
+    Xn, *_ = p._fvec(artist="__no_such_artist__", estimate_low=50_000,
+                     estimate_high=70_000, medium="oil on canvas",
+                     house="christies", sale_year=2025, sale_month=9)
+    assert float(Xn[0][cols.index("aspect_ratio")]) == 0.0, (
+        "aspect_ratio for missing dims must be 0.0 to match training fillna(0)")
 
 
 if __name__ == "__main__":
