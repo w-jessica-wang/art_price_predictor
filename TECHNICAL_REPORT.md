@@ -13,7 +13,7 @@ I built a leakage-controlled model to predict fine-art auction hammer prices and
 
 ## 1. Problem framing
 
-A naïve "predict the price" framing is misleading: the pre-sale estimate already explains ~87% of log-price variance, so any model that ingests the estimate will look accurate while contributing nothing. The honest target is therefore the **premium/discount over the estimate**:
+A naïve "predict the price" framing is misleading: the pre-sale estimate already explains ~89% of log-price variance, so any model that ingests the estimate will look accurate while contributing nothing. The honest target is therefore the **premium/discount over the estimate**:
 
 > `target = log(hammer_price / estimate_mid)`
 
