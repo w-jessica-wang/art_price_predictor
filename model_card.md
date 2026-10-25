@@ -131,7 +131,7 @@ Stability: MedAPE wins **all 5 quarters** (closest is 2024 Q4, 28.3 vs 29.7); ra
 
 ### Ranking skill (pooled walk-forward — the actual contribution)
 
-The unshrunk ensemble signal sorts whether a lot's hammer will exceed its **estimate midpoint** (base rate ≈61%):
+The unshrunk ensemble signal sorts whether a lot's hammer will exceed its **estimate midpoint** (base rate ≈65%):
 
 | Metric | Value |
 |---|---|
